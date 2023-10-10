@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body class="page">
+
+  <main class="main">
+
+    <div class="main__decoration">
+    </div>
+    <div class="main__decoration">
+    </div>
+    <div class="main__decoration">
+    </div>
+    <div class="main__decoration">
+    </div>
+
+    <div class="auth">
+      <img class="auth__logo" src="<%=require('./images/logo-main.svg')%>" alt="Логотип">
+      <h1 class="auth__title">Авторизация</h1>
+
+      <form class="auth__form">
+
+        <div class="auth__field">
+
+          <label class="auth__icon auth__icon_email"></label>
+
+          <input class="auth__input" placeholder="Email или телефон" type="Email" name="email">
+
+        </div>
+
+        <div class="auth__field">
+
+          <label class="auth__icon auth__icon_password"></label>
+
+          <input class="auth__input" placeholder="Пароль" type="password" name="password">
+
+        </div>
+
+        <span class="auth__error"></span>
+
+        <button class="auth__button">Войти</button>
+
+      </form>
+
+    </div>
+
+    <div class="preloader">
+      <span class="preloader__icon"></span>
+    </div>
+
+  </main>
+</body>
+
+</html>
