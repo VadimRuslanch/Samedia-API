@@ -17,15 +17,13 @@ export default class ErrorElement {
         this._fieldList = this._formElement.querySelectorAll(this._fieldElement);
 
         this._inputList = this._formElement.querySelectorAll(this._inputSelector);
+
     }
 
     visibleError = () => {
         const errorElement = this._formElement.querySelector('.auth__error');
         errorElement.textContent = this._data.errorMessage;
         errorElement.classList.add(this._errorClass);
-        this._inputList.forEach((input) => {
-            input.classList.add(this._inputErrorClass);
-        })
         this._fieldList.forEach((field) => {
             field.classList.add(this._fieldErrorClass);
         })
@@ -35,9 +33,6 @@ export default class ErrorElement {
         const errorElement = this._formElement.querySelector('.auth__error');
         errorElement.textContent = '';
         errorElement.classList.remove(this._errorClass);
-        this._inputList.forEach((input) => {
-            input.classList.remove(this._inputErrorClass);
-        })
         this._fieldList.forEach((field) => {
             field.classList.remove(this._fieldErrorClass);
         })

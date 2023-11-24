@@ -12,19 +12,18 @@ import Login from './components/Login';
 const login = new Login({
     handleFormSubmit: (userData) => {
         loader(true)
-
         ApiAuth.login(userData)
             .then(res => {
-                const error = new ErrorElement(res, validationConfig);
-                if (res.token) {
-                    localStorage.setItem('token', res.token);
+                const reply = new ErrorElement(res, validationConfig);
+                if (res.status === 'ok') {
+                    document.cookie = `token=${res.token}; path=/;`;
                     appearAuthBlock(res.user.name);
-                    error.hiddenError();
+                    reply.hiddenError();
                 } else {
-                    error.visibleError();
+                    reply.visibleError();
                 }
             })
-            .catch(res => { throw new Error(res.message) })
+            .catch(err => { throw new Error(err.message) })
             .finally(() => loader(false))
     },
 });
